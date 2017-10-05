@@ -1,35 +1,45 @@
 
 
 //The map fonction take the number of line as key and the line itself as the value
+
 map(key,value){
 //We create and empty list to store the results 
 	List[] result;
-	String[] tab = value.split(" ");
+//We parse the input line 
+	String[] tab = value.split(",");
+	
 	for(int j =0; j < tab.length();j++){
 	String word = tab[i];
 
-//For the map we are going to use the column number as a key and the couple line number - word as a value
+// we are going to use the column number as a key and the couple line number - word as a value
 	res = (j,(key,word));
 	result.add(res);
 	} 
-
 	return result;
 } 
-
 
 //The reduce takes the sorted key/values
 
 reduce(key,values){
 //Values is a list of couple line number - word
-
-// We first sort the value by the line number 
+// We first sort the values by the line number 
 values.sort();
 
-No we just have to print the result 
+//The variable for the output
+line_to_print = " " ;
 
-for (String word : values){
-	print word + " " ;
+//We iterate throughe the values (the syntax is not entirely exact, values is a list of couple and ot just strings but it works for pseud-code)
+
+for (int i = 0; i < values.length() ;i++ ){
+	line_to_print +=  word ;
+
+	//We don't want a comma at the end of the line 
+	if(!(i == values.length() -1 ))
+		line_to_print += ",";
+
 }
+//We now give to the output the number of the line and the line to print 
+return(key,line_to_print);
 
 //The matrix is transposed
 }
